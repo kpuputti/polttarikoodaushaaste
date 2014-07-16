@@ -1,10 +1,10 @@
 # Haskell hints
 
-## Hint 1
+## Haskell hint 1
 
 Open the REPL with `ghci`.
 
-## Hint 2
+## Haskell hint 2
 
 Integers can be written as literals:
 
@@ -13,18 +13,18 @@ Integers can be written as literals:
 
 Literal list syntax is the same as in JavaScript/Python/etc.
 
-## Hint 3
+## Haskell hint 3
 
 Function application is done with just a space:
 
     Prelude> min 1 2
     1
 
-## Hint 4
+## Haskell hint 4
 
 What would be an intuitive name for a polymorphic reverse function?
 
-## Extras
+## Haskell extras
 
 Ranges can be written as `[1..20]`.
 
