@@ -1,0 +1,17 @@
+body {
+    font-family: monospace;
+    background: #000000;
+    color: #00ff00;
+    padding: 20px;
+    font-size: 14px;
+}
+
+textarea {
+    width: 80ex;
+    height: 25ex;
+    background: #000000;
+    color: #00ff00;
+    font-family: monospace;
+    font-size: 14px;
+}
+
