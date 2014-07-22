@@ -17,6 +17,8 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "bacon": "~0.7.18",
-    "lodash": "~2.4.1"
+    "lodash": "~2.4.1",
+    "bacon.jquery": "~0.4.9",
+    "bacon.model": "~0.1.10"
   }
 }

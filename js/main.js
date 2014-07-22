@@ -1,36 +1,77 @@
 (function() {
   $(document).ready(function() {
+    //constants
     var day = "XXIII"
     var month = "VIII"
     var year = "MMXIV"
 
-    var $textfield = $("#textfield")
+    //jQuery
+    var $codeArea = $("#code")
+    var $output = $("#out")
+    var $instructionLayer = $("#instructions")
+    var $errorIndicator = $("#wat")
+    var $winIndicator = $("#win")
+    var $helpLink = $("#help")
 
-    var inputChangeEvents = $textfield.asEventStream("change")
-    var inputKeyUpEvents = $textfield.asEventStream("keyup").debounce(1000)
+    //plumbing
+    var codeTextArea = Bacon.$.textFieldValue($codeArea, "return val").debounce(1000).map(".trim")
+    var evaluatedInputResult = codeTextArea.flatMap(userInputToJavascriptFunction)
+    var applied = evaluatedInputResult.flatMap(applyUserFunctionToDateData)
 
-    var textFieldInput = inputKeyUpEvents.merge(inputChangeEvents).map(".target.value.trim").toProperty($textfield.text())
+    var errors = evaluatedInputResult.errors().merge(applied.errors())
 
-    var evaluatedInputResult = textFieldInput.map(function(input) {
-        return eval("(function(val) {" + input.trim() + "})")
+    applied.log()
+
+    var rightAnswer = applied.filter(function(dateStr) {
+      return dateStr === "23.8.2014"
     })
 
-    var applied = evaluatedInputResult.map(function(f) {
+    //side-effects
+    applied.skipErrors().onValue(hideErrorIndicator)
+    errors.onError(showErrorIndicator)
+    rightAnswer.onValue(showWinIndicator)
+
+    applied.assign($output, "text")
+
+    $instructionLayer.find(".dismiss").click(function() {
+      $instructionLayer.addClass("hidden")
+    })
+
+    $helpLink.click(function(event) {
+      event.preventDefault()
+      event.stopPropagation()
+      $instructionLayer.removeClass("hidden")
+    })
+
+    //utils
+    function userInputToJavascriptFunction(input) {
+      try {
+        return eval("(function(val) {" + input.trim() + "})")
+      } catch(err) {
+        return new Bacon.Error(err)
+      }
+    }
+
+    function applyUserFunctionToDateData(f) {
       try {
         return f(day) + "." + f(month) + "." + f(year)
       } catch(err) {
         return new Bacon.Error(err)
       }
-    })
+    }
 
-    applied.onError(function(err) {
-      console.log("AARGH")
-    })
+    function showWinIndicator() {
+      $winIndicator.removeClass("hidden")
+    }
 
-    var $output = $("#out")
-    applied.onValue(function(value) {
-      $output.text(value)
-    })
-    //applied.skipErrors().assign($output, "text")
+    function hideErrorIndicator() {
+      $errorIndicator.addClass("hidden")
+    }
+
+    function showErrorIndicator() {
+      $errorIndicator.removeClass("hidden")
+      $winIndicator.addClass("hidden")
+    }
+
   })
 })()

@@ -1,0 +1,27 @@
+{
+  "name": "bacon.model",
+  "version": "0.1.10",
+  "main": "dist/bacon.model.js",
+  "ignore": [
+    "browsertest",
+    "examples",
+    "src",
+    "test",
+    "./*.*",
+    "build",
+    "release",
+    "run-tests",
+    "version"
+  ],
+  "homepage": "https://github.com/baconjs/bacon.model",
+  "_release": "0.1.10",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.1.10",
+    "commit": "958a8a5d4e2977d7c29dc426265d3734f746f601"
+  },
+  "_source": "git://github.com/baconjs/bacon.model.git",
+  "_target": "~0.1.10",
+  "_originalSource": "bacon.model",
+  "_direct": true
+}

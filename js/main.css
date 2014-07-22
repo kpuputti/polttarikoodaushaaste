@@ -1,17 +1,97 @@
 body {
     font-family: monospace;
-    background: #000000;
-    color: #00ff00;
+    background: #ffffff;
+    color: #000000;
     padding: 20px;
+}
+
+table {
+    margin: 5px;
+    color: #ffffff;
+}
+
+td {
+    border: solid 1px #000000;
+}
+
+#mission-area, #output-area {
+    float: left;
+}
+
+#mission-area {
+    font-family: monospace;
     font-size: 14px;
+    margin-right: 10px;
 }
 
 textarea {
     width: 80ex;
-    height: 25ex;
+    height: 600px;
     background: #000000;
-    color: #00ff00;
+    color: #ffffff;
     font-family: monospace;
     font-size: 14px;
 }
 
+#instructions {
+    position: absolute;
+    background: #3e458c;
+    width: 800px;
+    height: 400px;
+    border-radius: 5px;
+    color: #ffffff;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -400px;
+    transition: z-index 0s;
+    padding: 10px;
+    border-left: 1px solid #000000;
+    border-right: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+}
+
+#instructions button {
+    background: #ffffff;
+    color: #000000;
+    padding: 5px;
+}
+
+#instructions.hidden {
+    opacity: 0;
+    z-index: -1000;
+    transition: opacity 0.5s linear, z-index 0s 0.5s;
+}
+
+#win {
+    background: url("win.jpg");
+    width: 640px;
+    height: 640px;
+    max-height: 640px;
+    transition: max-height 0s, opacity 0.2s linear;
+}
+
+#win.hidden {
+    opacity: 0;
+    max-height: 0;
+}
+
+#wat {
+    background: url("wat.png");
+    width: 375px;
+    height: 500px;
+    max-height: 500px;
+    transition: max-height 0s 0.01s, opacity 0.2s 0.01s linear;
+}
+
+#wat.hidden {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.2s 0.01s linear, max-height 0s 0.2s;
+}
+
+button {
+    padding: 3px;
+    border-radius: 3px;
+    border: 0;
+}

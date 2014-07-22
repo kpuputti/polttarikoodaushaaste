@@ -1,19 +1,63 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="main.css" />
-        <script language="javascript" type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
-        <script language="javascript" type="text/javascript" src="bower_components/bacon/dist/Bacon.js"></script>
-        <script language="javascript" type="text/javascript" src="bower_components/lodash/dist/lodash.js"></script>
-        <script language="javascript" type="text/javascript" src="main.js"></script>
-    </head>
-    <body>
+<head>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+    <script language="javascript" type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="bower_components/bacon/dist/Bacon.js"></script>
+    <script language="javascript" type="text/javascript" src="bower_components/bacon.model/dist/bacon.model.js"></script>
+    <script language="javascript" type="text/javascript" src="bower_components/bacon.jquery/dist/bacon.jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="bower_components/lodash/dist/lodash.js"></script>
+    <script language="javascript" type="text/javascript" src="main.js"></script>
+</head>
+<body>
+<div id="mission-area">
     function(val) {<br>
-    <textarea id="textfield" type="text">
-return val
+    <textarea id="code" type="text">
     </textarea>
     <br>
     }
-    <br>
-    <span id="out"></span>
-    </body>
+</div>
+<div id="output-area">
+    Tulos: <span id="out"></span>
+    <div id="win" class="hidden">
+    </div>
+    <div id="wat" class="hidden">
+    </div>
+</div>
+<div id="instructions">
+    <h3>JavaScript-tehtävä</h3>
+
+    <p>
+        Tehtävänäsi on kirjoittaa JavaScript-funktio, joka muuttaa parametrina annetun roomalaisen numeron (syöte) <em>val</em>
+        kymmenjärjestelmään. Syöte annetaan merkkijonona ja funktion tulee palauttaa merkkijono.
+    </p>
+
+    <p>
+        Arvovaltainen raati arvostaa ennen kaikkea ratkaisun toimivuutta, mutta funktionaalisesta ratkaisusta saa tyylipisteitä ja valtavia suosionosoituksia.
+    </p>
+    <p>
+        Voit käyttää ratkaisussasi sivulta löytyviä jQuery, Bacon.js ja lodash-kirjastoja.
+    </p>
+
+    <em>It is dangerous to go alone, take this:</em>
+
+    <pre>
+{
+  'M': 1000,
+  'D': 500,
+  'C': 100,
+  'L': 50,
+  'X': 10,
+  'V': 5,
+  'I': 1
+}
+    </pre>
+
+    <button class="dismiss">Hey ho, let's go!</button>
+</div>
+
+<a id="help" href="#">WAT?</a>
+
+
+</body>
 </html>
